@@ -36,8 +36,16 @@
                 <td class="tick" id="bx9">_</td>
             </tr>
         </table>
+
         <button id="clear">Clear</button>
-        <p>Dane</p>
+        
+
+        <div class="winner">
+            
+
+
+
+        </div>
         <script>
             let turn = 0;
             $(".tick").click(function(){
@@ -51,7 +59,7 @@
                 });
             $("#clear").click(function(){
                 $(".tick").text("_")
-                console.log("huh")
+                
             });
 
             function winCheck(){
