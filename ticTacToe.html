@@ -40,6 +40,7 @@
         <p>Dane</p>
         <script>
             let turn = 0;
+            let x = 0;
             $(".tick").click(function(){
                     if(turn == 0){
                         $(this).text("X")
@@ -55,8 +56,30 @@
             });
 
             function winCheck(){
-
+                while(x==0){
+                    if(document.getElementById("bx1").innerHTML==document.getElementById("bx2").innerHTML && document.getElementById("bx1").innerHTML==document.getElementById("bx3").innerHTML){
+                        if(document.getElementById("bx1").innerHTML!="_"){
+                            alert(document.getElementById("bx1").innerHTML+" Won!")
+                        }
+                    }
+                    if(document.getElementById("bx3").innerHTML==document.getElementById("bx4").innerHTML && document.getElementById("bx3").innerHTML==document.getElementById("bx5").innerHTML){
+                        if(document.getElementById("bx3").innerHTML!="_"){
+                            alert(document.getElementById("bx1").innerHTML+" Won!")
+                        }
+                    }
+                    if(document.getElementById("bx6").innerHTML==document.getElementById("bx7").innerHTML && document.getElementById("bx6").innerHTML==document.getElementById("bx8").innerHTML){
+                        if(document.getElementById("bx6").innerHTML!="_"){
+                            alert(document.getElementById("bx1").innerHTML+" Won!")
+                        }
+                    }
+                    if(document.getElementById("bx1").innerHTML==document.getElementById("bx2").innerHTML && document.getElementById("bx1").innerHTML==document.getElementById("bx3").innerHTML){
+                        if(document.getElementById("bx7").innerHTML!="_"){
+                            alert(document.getElementById("bx1").innerHTML+" Won!")
+                        }
+                    }
+                }
             }
+
         </script>
     </body>
 </html>
