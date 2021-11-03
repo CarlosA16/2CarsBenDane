@@ -3,22 +3,54 @@
         <title>Tic Tac Toe</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
+        body{
+            background-color: #fff;
+            -webkit-animation: random 5s infinite;
+            animation: random 5s infinite;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
         th, td, tr{
-            border-color: black;
+            border-color: grey;
             border-style: solid;
             border-collapse: collapse;
             padding: 20px;
+            font-size: 240%;
+            background-color: rgb(226, 212, 185);
+        }
+        @keyframes  random {
+            15% { background-color: brown; } 
+            30% { background-color: yellow; } 
+            45% { background-color: green; } 
+            60% { background-color: lightsalmon; }
+            75% { background-color: dimgray; }
+            88% { background-color: blueviolet;}  
         }
         table{
-            border-color: white;
+            text-align: center;
+            border-color: grey;
             border-style: solid;
             border-collapse: collapse;
             border-width: 5px;
         }
+        #clear{
+            background-color: grey;
+            font-size: 200%;
+            border: none;
+            color: rgb(65, 64, 64);
+        }
+        h1{
+            background-color: rgb(226, 212, 185);
+            color: rgb(65, 64, 64);
+            border: 4px solid grey;
+        }
         </style>
     </head>
     <body>
-        <p>hello there</p>
+        <h1>Tic Tac Toe</h1>
         <table>
             <tr>
                 <td class="tick" id="bx1">_</td>
@@ -37,7 +69,7 @@
             </tr>
         </table>
         <button id="clear">Clear</button>
-        <p>Dane</p>
+        <p>By: Carlos Benjamin & Dane</p>
         <script>
             let turn = 0;
             let x = 0;
