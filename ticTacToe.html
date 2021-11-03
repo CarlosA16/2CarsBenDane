@@ -41,21 +41,58 @@
         <script>
             let turn = 0;
             $(".tick").click(function(){
-                    if(turn == 0){
-                        $(this).text("X")
-                        turn = 1
-                    }else if(turn == 1){
-                        $(this).text("O")
-                        turn = 0
-                    }
-                });
+                if(turn == 0){
+                    $(this).text("X")
+                    turn = 1
+                    winCheck()
+                }else if(turn == 1){
+                    $(this).text("O")
+                    turn = 0
+                    winCheck()
+                }
+            });
             $("#clear").click(function(){
                 $(".tick").text("_")
                 console.log("huh")
             });
 
             function winCheck(){
+                let win = false
+                let winner = "_"
+                if($("#bx1").text() == $("#bx2").text() && $("#bx3").text() == $("#bx2").text()){
+                    win = true
+                    winner = $("#bx2").text()
+                }else if($("#bx4").text() == $("#bx5").text() && $("#bx5").text() == $("#bx6").text()){
+                    win = true
+                    winner = $("#bx5").text()
+                }else if($("#bx7").text() == $("#bx8").text() && $("#bx8").text() == $("#bx9").text()){
+                    win = true
+                    winner = $("#bx8").text()
+                }
+                
+                else if($("#bx1").text() == $("#bx4").text() && $("#bx4").text() == $("#bx7").text()){
+                    win = true
+                    winner = $("#bx4").text()
+                }else if($("#bx2").text() == $("#bx5").text() && $("#bx5").text() == $("#bx8").text()){
+                    win = true
+                    winner = $("#bx5").text()
+                }else if($("#bx3").text() == $("#bx6").text() && $("#bx6").text() == $("#bx9").text()){
+                    win = true
+                    winner = $("#bx6").text()
+                }
 
+                else if($("#bx1").text() == $("#bx5").text() && $("#bx5").text() == $("#bx9").text()){
+                    win = true
+                    winner = $("#bx5").text()
+                }else if($("#bx3").text() == $("#bx5").text() && $("#bx5").text() == $("#bx7").text()){
+                    win = true
+                }
+                if(winner == "_"){
+                    win = false
+                }
+                if(win == true){
+                    alert('Player "' + winner + '" Has Won!')
+                }
             }
         </script>
     </body>
