@@ -227,25 +227,31 @@
                 }else if($("#bx7").text() == $("#bx8").text() && $("#bx8").text() == $("#bx9").text() && $("#bx7").text() != "_"){
                     win = true
                     winner = $("#bx8").text()
-                    $(".line5").css("visibility", "visible")
+                    if($("#bx7").text() !="_"){
+                        $(".line5").css("visibility", "visible")
+                    }
                 }
                 
                 else if($("#bx1").text() == $("#bx4").text() && $("#bx4").text() == $("#bx7").text() && $("#bx1").text() != "_"){
                     win = true
                     winner = $("#bx4").text()
-                    $(".line2").css("visibility", "visible")
-
+                    if($("#bx1").text() !="_"){
+                        $(".line2").css("visibility", "visible")
+                    }
 
                 }else if($("#bx2").text() == $("#bx5").text() && $("#bx5").text() == $("#bx8").text()){
                     win = true
                     winner = $("#bx5").text()
-                    $(".line3").css("visibility", "visible")
-
+                    if($("#bx2").text() !="_"){
+                        $(".line3").css("visibility", "visible")
+                    }
 
                 }else if($("#bx3").text() == $("#bx6").text() && $("#bx6").text() == $("#bx9").text()){
                     win = true
                     winner = $("#bx6").text()
-                    $(".line4").css("visibility", "visible")
+                    if($("#bx3").text() !="_"){
+                        $(".line4").css("visibility", "visible")
+                    }
                 }
 
                 else if($("#bx1").text() == $("#bx5").text() && $("#bx5").text() == $("#bx9").text() && $("#bx1").text() != "_"){
