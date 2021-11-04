@@ -71,22 +71,26 @@
         <button id="clear">Clear</button>
         <p>By: Carlos Almanzar, Benjamin, Dane, & Carlos Almonte</p>
         <script>
+            let winturn = 0
             let turn = 0;
             let x = 0;
             $(".tick").click(function(){
                 if(turn == 0 && $(this).text() == "_"){
                     $(this).text("X")
                     turn = 1
+                    winturn ++
                     winCheck()
                 }else if(turn == 1 && $(this).text() == "_"){
                     $(this).text("O")
                     turn = 0
+                    winturn ++
                     winCheck()
                 }
             });
             $("#clear").click(function(){
                 $(".tick").text("_")
                 console.log("huh")
+                winturn = 0
             });
 
             function winCheck(){
@@ -123,6 +127,9 @@
                 }
                 if(winner == "_"){
                     win = false
+                }
+                if(winturn == 9 && win == false){
+                    alert("It is a draw")
                 }
                 if(win == true){
                     alert('Player "' + winner + '" Has Won!')
