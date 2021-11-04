@@ -132,9 +132,13 @@
                     winner = $("#bx5").text()
                 }else if($("#bx3").text() == $("#bx5").text() && $("#bx5").text() == $("#bx7").text()){
                     win = true
+                    winner = $("#bx5").text()
                 }
                 if(winner == "_"){
                     win = false
+                }
+                if(winturn == 9 && win == false){
+                    alert("It is a draw")
                 }
                 if(win == true){
                     alert('Player "' + winner + '" Has Won!')
