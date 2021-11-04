@@ -60,6 +60,102 @@
             color: rgb(65, 64, 64);
             border: 4px solid grey; 
         }
+      
+       .paint{
+           z-index: -1;
+           height: 57%;
+           width: 40%;
+           position: absolute;
+       }
+      .line {
+          background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          transform: rotate(90deg);
+          margin-top: 50px;
+          margin-left: 370px;
+          visibility: hidden;
+      }
+      .line2 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 120px;
+          margin-top: 60px;
+          visibility: hidden;
+          
+      }
+      .line3 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 360px;
+          margin-top: 60px;
+          visibility: hidden;
+      }
+      .line4 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 590px;
+          margin-top: 60px;
+          visibility: hidden;
+        
+          
+      }
+      .line5 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          transform: rotate(90deg);
+          margin-top: 200px;
+          margin-left: 370px;
+          visibility: hidden;
+          
+      }
+      .line6 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 120px;
+          margin-top: 60px;
+          visibility: hidden;
+          
+      }
+      .line7 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 120px;
+          margin-top: 60px;
+          visibility: hidden;
+          
+      }
+      .line8 {
+        background-color: black;
+          width: 3px;
+          height: 30vw;
+          position: absolute;
+          margin-left: 120px;
+          margin-top: 60px;
+          visibility: hidden;
+          
+      }
+   
+        </style>
+    </head>
+    <body>
+       
+        <h1>Tic Tac Toe</h1>
+        <table>
+           <div class="line"></div>
 
         </style>
     </head>
@@ -67,11 +163,16 @@
         <h1>X Tic Tac Toe O</h1>
         <table id="tbl">
             <tr>
+                <div class="line2"></div>
+                <div class="line3"></div>
+                <div class="line4"></div>
+                <div class="line5"></div>
                 <td class="tick" id="bx1">_</td>
                 <td class="tick" id="bx2">_</td>
                 <td class="tick" id="bx3">_</td>
             </tr>
             <tr>
+              
                 <td class="tick" id="bx4">_</td>
                 <td class="tick" id="bx5">_</td>
                 <td class="tick" id="bx6">_</td>
@@ -81,6 +182,7 @@
                 <td class="tick" id="bx8">_</td>
                 <td class="tick" id="bx9">_</td>
             </tr>
+        
         </table>
         <h1 id="test" style="visibility: hidden;"></h1>
         <button id="clear">Clear</button>
@@ -125,17 +227,31 @@
                 }else if($("#bx7").text() == $("#bx8").text() && $("#bx8").text() == $("#bx9").text() && $("#bx7").text() != "_"){
                     win = true
                     winner = $("#bx8").text()
+                    if($("#bx7").text() !="_"){
+                        $(".line5").css("visibility", "visible")
+                    }
                 }
                 
                 else if($("#bx1").text() == $("#bx4").text() && $("#bx4").text() == $("#bx7").text() && $("#bx1").text() != "_"){
                     win = true
                     winner = $("#bx4").text()
-                }else if($("#bx2").text() == $("#bx5").text() && $("#bx5").text() == $("#bx8").text() && $("#bx2").text() != "_"){
+                    if($("#bx1").text() !="_"){
+                        $(".line2").css("visibility", "visible")
+                    }
+
+                }else if($("#bx2").text() == $("#bx5").text() && $("#bx5").text() == $("#bx8").text()){
                     win = true
                     winner = $("#bx5").text()
-                }else if($("#bx3").text() == $("#bx6").text() && $("#bx6").text() == $("#bx9").text() && $("#bx3").text() != "_"){
+                    if($("#bx2").text() !="_"){
+                        $(".line3").css("visibility", "visible")
+                    }
+
+                }else if($("#bx3").text() == $("#bx6").text() && $("#bx6").text() == $("#bx9").text()){
                     win = true
                     winner = $("#bx6").text()
+                    if($("#bx3").text() !="_"){
+                        $(".line4").css("visibility", "visible")
+                    }
                 }
 
                 else if($("#bx1").text() == $("#bx5").text() && $("#bx5").text() == $("#bx9").text() && $("#bx1").text() != "_"){
@@ -144,6 +260,7 @@
                 }else if($("#bx3").text() == $("#bx5").text() && $("#bx5").text() == $("#bx7").text() && $("#bx3").text() != "_"){
                     win = true
                     winner = $("#bx5").text()
+                  
                 }
                 if(winner == "_"){
                     win = false
@@ -159,6 +276,8 @@
                     document.getElementById("test").style.visibility="visible";
                 }
             }
+           
+          
 
         </script>
     </body>
