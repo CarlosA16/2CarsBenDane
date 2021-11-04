@@ -1,8 +1,13 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+
         <title>Tic Tac Toe</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
+
         body{
             background-color: #fff;
             -webkit-animation: random 5s infinite;
@@ -12,6 +17,7 @@
             flex-direction: column;
             margin-left: 30%;
             margin-right: 30%;
+            font-family: 'Ceviche One', cursive;
         }
         th, td, tr{
             border-color: grey;
@@ -46,6 +52,13 @@
             background-color: rgb(226, 212, 185);
             color: rgb(65, 64, 64);
             border: 4px solid grey;
+            word-spacing: 12px;
+        }
+
+        .ppl{
+            background-color: rgb(226, 212, 185);
+            color: rgb(65, 64, 64);
+            border: 4px solid grey; 
         }
       
        .paint{
@@ -143,6 +156,12 @@
         <h1>Tic Tac Toe</h1>
         <table>
            <div class="line"></div>
+
+        </style>
+    </head>
+    <body>
+        <h1>X Tic Tac Toe O</h1>
+        <table id="tbl">
             <tr>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -165,49 +184,53 @@
             </tr>
         
         </table>
-       
+        <h1 id="test" style="visibility: hidden;"></h1>
         <button id="clear">Clear</button>
-        <p>By: Carlos Benjamin & Dane</p>
+        <p class="ppl" >  By : Carlos Almanzar, Benjamin, Dane, & Carlos Almonte </p>
         <script>
+            let over = false
+            let winturn = 0
             let turn = 0;
             let x = 0;
             $(".tick").click(function(){
-                if(turn == 0 && $(this).text() == "_"){
+                if(turn == 0 && $(this).text() == "_" && over == false){
                     $(this).text("X")
                     turn = 1
+                    winturn ++
                     winCheck()
-                }else if(turn == 1 && $(this).text() == "_"){
+                }else if(turn == 1 && $(this).text() == "_" && over == false){
                     $(this).text("O")
                     turn = 0
+                    winturn ++
                     winCheck()
                 }
             });
             $("#clear").click(function(){
+                over = false
                 $(".tick").text("_")
                 console.log("huh")
+                winturn = 0
+                turn = 0
+                document.getElementById("test").innerHTML=""
+                document.getElementById("test").style.visibility="hidden";
             });
 
             function winCheck(){
                 let win = false
                 let winner = "_"
-                if($("#bx1").text() == $("#bx2").text() && $("#bx3").text() == $("#bx2").text()){
+                if($("#bx1").text() == $("#bx2").text() && $("#bx3").text() == $("#bx2").text() && $("#bx1").text() != "_"){
                     win = true
                     winner = $("#bx2").text()
-
-                }
-                else if($("#bx4").text() == $("#bx5").text() && $("#bx5").text() == $("#bx6").text()){
+                }else if($("#bx4").text() == $("#bx5").text() && $("#bx5").text() == $("#bx6").text() && $("#bx4").text() != "_"){
                     win = true
                     winner = $("#bx5").text()
-                    $(".line").css("visibility", "visible")
-
-
-                }else if($("#bx7").text() == $("#bx8").text() && $("#bx8").text() == $("#bx9").text()){
+                }else if($("#bx7").text() == $("#bx8").text() && $("#bx8").text() == $("#bx9").text() && $("#bx7").text() != "_"){
                     win = true
                     winner = $("#bx8").text()
                     $(".line5").css("visibility", "visible")
                 }
                 
-                else if($("#bx1").text() == $("#bx4").text() && $("#bx4").text() == $("#bx7").text()){
+                else if($("#bx1").text() == $("#bx4").text() && $("#bx4").text() == $("#bx7").text() && $("#bx1").text() != "_"){
                     win = true
                     winner = $("#bx4").text()
                     $(".line2").css("visibility", "visible")
@@ -225,12 +248,10 @@
                     $(".line4").css("visibility", "visible")
                 }
 
-                else if($("#bx1").text() == $("#bx5").text() && $("#bx5").text() == $("#bx9").text()){
+                else if($("#bx1").text() == $("#bx5").text() && $("#bx5").text() == $("#bx9").text() && $("#bx1").text() != "_"){
                     win = true
                     winner = $("#bx5").text()
-
-
-                }else if($("#bx3").text() == $("#bx5").text() && $("#bx5").text() == $("#bx7").text()){
+                }else if($("#bx3").text() == $("#bx5").text() && $("#bx5").text() == $("#bx7").text() && $("#bx3").text() != "_"){
                     win = true
                     winner = $("#bx5").text()
                   
@@ -238,9 +259,15 @@
                 if(winner == "_"){
                     win = false
                 }
+                if(winturn == 9 && win == false){
+                    over = true
+                    document.getElementById("test").innerHTML= 'Its a Draw!'
+                    document.getElementById("test").style.visibility="visible";
+                }
                 if(win == true){
-                  
-                    alert('Player "' + winner + '" Has Won!')
+                    over = true
+                    document.getElementById("test").innerHTML= 'Player "' + winner + '" Has Won!'
+                    document.getElementById("test").style.visibility="visible";
                 }
             }
            
