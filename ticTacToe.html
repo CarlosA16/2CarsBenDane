@@ -58,8 +58,8 @@
         </style>
     </head>
     <body>
-        <h1>X  Tic Tac Toe  O</h1>
-        <table>
+        <h1>X Tic Tac Toe O</h1>
+        <table id="tbl">
             <tr>
                 <td class="tick" id="bx1">_</td>
                 <td class="tick" id="bx2">_</td>
@@ -76,6 +76,7 @@
                 <td class="tick" id="bx9">_</td>
             </tr>
         </table>
+        <h1 id="test" style="visibility: hidden;"></h1>
         <button id="clear">Clear</button>
         <p class="ppl" >  By : Carlos Almanzar, Benjamin, Dane, & Carlos Almonte </p>
         <script>
@@ -99,6 +100,8 @@
                 $(".tick").text("_")
                 console.log("huh")
                 winturn = 0
+                document.getElementById("test").innerHTML=""
+                document.getElementById("test").style.visibility="hidden";
             });
 
             function winCheck(){
@@ -137,10 +140,12 @@
                     win = false
                 }
                 if(winturn == 9 && win == false){
-                    alert("It is a draw")
+                    document.getElementById("test").innerHTML= 'Its a Draw!'
+                    document.getElementById("test").style.visibility="visible";
                 }
                 if(win == true){
-                    alert('Player "' + winner + '" Has Won!')
+                    document.getElementById("test").innerHTML= 'Player "' + winner + '" Has Won!'
+                    document.getElementById("test").style.visibility="visible";
                 }
             }
 
